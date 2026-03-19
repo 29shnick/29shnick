@@ -4,23 +4,23 @@
 ![Google AI Certified](https://img.shields.io/badge/Google_AI-Certified-blue.svg)
 ![Location](https://img.shields.io/badge/Location-Chicago%2C%20IL-red.svg)
 
-### 🚀 Safety & Operations Manager | IT & AI Professional
+### 🚀 Operations & Safety Specialist | IT Support & AI Evaluator
 
-Based in Chicago, I bring a unique blend of **Operational Leadership** from the trucking industry and **Technical Expertise** in IT Support and AI Evaluation. I specialize in bridging the gap between complex logistics operations and modern technical solutions.
-
----
-
-### 💼 Professional Experience
-* **Safety & Operations Management:** Experienced leader in the trucking industry, specializing in fleet safety, DOT compliance, and high-pressure operational workflows.
-* **IT Support & Systems:** Google IT Support Professional Certificate holder with expertise in technical troubleshooting, system administration, and network security.
-* **AI Evaluation:** Google AI Professional Certificate holder focused on LLM benchmarking, linguistic accuracy, and multilingual logic testing.
+I am a Chicago-based professional specializing in **Operational Safety**, **Regulatory Compliance**, and **IT Infrastructure**. I bridge the gap between complex physical operations and technical systems, ensuring safety, efficiency, and data-driven performance.
 
 ---
 
-### 🛠️ Technical Skill Set
-* **Certifications:** Google IT Support Professional, Google AI Professional.
-* **Core Skills:** DOT Compliance, Fleet Safety, Risk Management, Technical Troubleshooting, LLM Grounding.
+### 💼 Professional Expertise
+* **Operations & Safety Management:** Proven track down in managing high-stakes operational workflows, risk mitigation, and strict regulatory compliance.
+* **IT Support & Systems:** Google IT Support Professional Certificate holder. Experienced in technical troubleshooting, system administration, and network security.
+* **AI Model Evaluation:** Google AI Professional Certificate holder. Focused on LLM benchmarking, "Red Teaming" for logic errors, and multilingual grounding.
+
+---
+
+### 🛠️ Technical Skill Set & Languages
+* **Core Skills:** Operational Risk Management, Regulatory Compliance (Safety Standards), Technical Troubleshooting, Systems Auditing, LLM Evaluation.
 * **Languages:** English, Spanish, Macedonian, Serbian.
+* **Certifications:** Google IT Support Professional, Google AI Professional.
 
 ---
 
@@ -28,7 +28,10 @@ Based in Chicago, I bring a unique blend of **Operational Leadership** from the 
 * 🛡️ [LLM-Stress-Test-Suite](https://github.com/29shnick/LLM-Stress-Test-Suite) — Multilingual logic and slang benchmarks for AI models.
 * 📊 [Data-Center-Asset-Tracker](https://github.com/29shnick/Data-Center-Asset-Tracker) — Infrastructure monitoring for hardware and thermal efficiency.
 * ₿ [Bitcoin-Mining-App](https://github.com/29shnick/Bitcoin-Mining-App) — Performance tracking for mining operations.
+
 ---
+
 ### 📫 Let's Connect
 * **Location:** Chicago, Illinois
-* **Focus:**  IT Infrastructure, AI Prompting, Vibe - Coding, AI Automation
+* **Focus:** Mission-Critical Operations, IT Infrastructure, AI Quality Assurance
+
