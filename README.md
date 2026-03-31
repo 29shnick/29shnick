@@ -6,9 +6,9 @@ Based in Chicago, IL, I am a results-driven professional pivoting from a backgro
 ---
 
 ### 🎓 Professional Certifications
-* 🎖️ **Google Data Analysis with Python Professional Certificate** (March 2026)
-* 🎖️ **Google AI Professional Certificate** (May 2025)
-* 🎖️ **Google IT Support Professional Certificate** (May 2025)
+![Google Data Analysis](https://img.shields.io/badge/Google-Data%20Analysis%20Python-blue?style=flat-square&logo=google&logoColor=white) 
+![Google AI Prof](https://img.shields.io/badge/Google-AI%20Professional-red?style=flat-square&logo=google&logoColor=white) 
+![Google IT Support](https://img.shields.io/badge/Google-IT%20Support%20Prof-green?style=flat-square&logo=google&logoColor=white)
 
 ---
 
@@ -40,13 +40,11 @@ Real-time performance tracking and metrics for mining hardware operations.
 ---
 
 ### 📊 GitHub Activity
-![Nikola's GitHub Stats](https://github-readme-stats.vercel.app/api?username=29shnick&show_icons=true&theme=tokyonight)
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=29shnick&layout=compact&theme=tokyonight)
+![Nikola's Stats](https://github-readme-stats.vercel.app/api?username=29shnick&show_icons=true&theme=transparent)
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=29shnick&layout=compact&theme=transparent)
 
 ---
 
 ### 📫 Let's Connect!
 * 📍 **Location:** Chicago, IL
-* 💼 **LinkedIn:** [Your LinkedIn Link](https://www.linkedin.com/in/nikola-shikaleski-0b3a3a1a1/) 
-  
-
+* 💼 **LinkedIn:** [Nikola Shikaleski](https://www.linkedin.com/in/nikola-shikaleski-0b3a3a1a1/) 
