@@ -51,4 +51,4 @@ Real-time performance tracking and metrics for mining hardware operations.
 
 ### 📫 Let's Connect!
 * 📍 **Location:** Chicago, IL
-* 💼 **LinkedIn:** [Nikola Shikaleski](https://www.linkedin.com/in/nikola-shikaleski-0b3a3a1a1/) 
+* 💼 **LinkedIn:** https://www.linkedin.com/in/ns-9352722bb
