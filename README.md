@@ -40,8 +40,10 @@ Real-time performance tracking and metrics for mining hardware operations.
 ---
 
 ### 📊 GitHub Activity
-![Nikola's Stats](https://github-readme-stats.vercel.app/api?username=29shnick&show_icons=true&theme=tokyonight&count_private=true)
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=29shnick&show_icons=true&theme=tokyonight&count_private=true)
+
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=29shnick&layout=compact&theme=tokyonight)
+
 
 
 ---
