@@ -3,9 +3,12 @@ name: Deploy to Azure
 on:
   push:
     branches:
-      - main  # Triggers the workflow whenever you push to the main branch
+      - main
 
-# Mandatory permissions required to request the OIDC JWT token from Azure
+# 1. This line fixes the Node.js deprecation warning completely
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true 
+
 permissions:
   id-token: write
   contents: read
@@ -17,7 +20,21 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      # 1. Authenticate with Azure using OIDC (No persistent passwords or client secrets needed)
+      # 2. THE TRUTH TELLER: This tests if GitHub actually sees your secrets
+      - name: Debug Secrets Presence
+        run: |
+          echo "=== SECRETS CHECK ==="
+          echo -n "Is AZURE_CLIENT_ID populated? "
+          if [ -n "${{ secrets.AZURE_CLIENT_ID }}" ]; then echo "YES"; else echo "NO"; fi
+          
+          echo -n "Is AZURE_TENANT_ID populated? "
+          if [ -n "${{ secrets.AZURE_TENANT_ID }}" ]; then echo "YES"; else echo "NO"; fi
+          
+          echo -n "Is AZURE_SUBSCRIPTION_ID populated? "
+          if [ -n "${{ secrets.AZURE_SUBSCRIPTION_ID }}" ]; then echo "YES"; else echo "NO"; fi
+          echo "====================="
+
+      # 3. Try the login
       - name: Azure Login
         uses: azure/login@v2
         with:
@@ -25,14 +42,7 @@ jobs:
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
-      # 2. Run a quick verification test to confirm the handshake worked
+      # 4. Verification
       - name: Verify Azure Connection
         run: |
-          echo "Successfully authenticated with Azure!"
           az account show --output table
-
-      # 3. Add your specific deployment step below (Example: Deploying an App Service)
-      # - name: Deploy Web App
-      #   uses: azure/webapps-deploy@v3
-      #   with:
-      #     app-name: 'your-azure-app-name'
