@@ -1,4 +1,5 @@
-# 1. Authenticate with Azure
+steps:
+      # 1. Authenticate with Azure
       - name: Azure Login
         uses: azure/login@v2
         with:
@@ -12,8 +13,9 @@
           echo "Waking up the web app..."
           az webapp start --name 29shnick-prod --resource-group 29shnick-prod_group
 
-      # 3. Deploy Web App (This will now succeed)
+      # 3. Deploy Web App
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
           app-name: '29shnick-prod'
+          
