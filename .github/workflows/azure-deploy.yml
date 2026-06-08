@@ -1,0 +1,38 @@
+name: Deploy to Azure
+
+on:
+  push:
+    branches:
+      - main  # Triggers the workflow whenever you push to the main branch
+
+# Mandatory permissions required to request the OIDC JWT token from Azure
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  azure-sign-in:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # 1. Authenticate with Azure using OIDC (No persistent passwords or client secrets needed)
+      - name: Azure Login
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      # 2. Run a quick verification test to confirm the handshake worked
+      - name: Verify Azure Connection
+        run: |
+          echo "Successfully authenticated with Azure!"
+          az account show --output table
+
+      # 3. Add your specific deployment step below (Example: Deploying an App Service)
+      # - name: Deploy Web App
+      #   uses: azure/webapps-deploy@v3
+      #   with:
+      #     app-name: 'your-azure-app-name'
