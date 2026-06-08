@@ -9,7 +9,7 @@ try:
     client = genai.Client()
     
     user_input = st.text_input("Ask a question to the AI model:")
-  if user_input:
+    if user_input:
         response = client.models.generate_content(
             model='gemini-1.5-flash',
             contents=user_input,
@@ -20,3 +20,4 @@ try:
 except Exception as e:
     # This replaces the generic text with the actual system error
     st.error(f"System Error Details: {e}")
+    
