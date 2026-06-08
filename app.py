@@ -21,3 +21,4 @@ except Exception as e:
     # This replaces the generic text with the actual system error
     st.error(f"System Error Details: {e}")
     
+    
