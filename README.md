@@ -1,6 +1,6 @@
 # Hi, I'm Nikola! 👋
 
-[![](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](YOUR_LINKEDIN_URL)
+[![](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](www.linkedin.com/in/ns-9352722bb)
 
 ### 🚀 Transitioning from Logistics Operations to IT & Data Analysis
 Based in Chicago, IL, I am a results-driven professional pivoting from a background in safety management and operations into the IT field. I specialize in building AI-driven data tools and automation scripts using Python and the Google ecosystem.
