@@ -1,5 +1,7 @@
 # Hi, I'm Nikola! 👋
 
+[![](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](YOUR_LINKEDIN_URL)
+
 ### 🚀 Transitioning from Logistics Operations to IT & Data Analysis
 Based in Chicago, IL, I am a results-driven professional pivoting from a background in safety management and operations into the IT field. I specialize in building AI-driven data tools and automation scripts using Python and the Google ecosystem.
 
@@ -22,35 +24,22 @@ Based in Chicago, IL, I am a results-driven professional pivoting from a backgro
 **AI & Cloud**
 ![Google Gemini](https://img.shields.io/badge/Google%20Gemini-8E75B2?style=for-the-badge&logo=googlegemini&logoColor=white)
 ![Google Cloud](https://img.shields.io/badge/GoogleCloud-%234285F4.svg?style=for-the-badge&logo=google-cloud&logoColor=white)
+![Azure](https://img.shields.io/badge/azure-%230078D4.svg?style=for-the-badge&logo=microsoft-azure&logoColor=white)
 ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
 
 ---
 
 ### 🌟 Featured Projects
 
+* 🛡️ **[FleetGuard Compliance & Safety Dashboard](https://github.com/29shnick/FleetGuard-Compliance-and-Safety-Dashboard)**
+  A production-grade, data-driven compliance portal built with React, TypeScript, and Vite. Features a fully automated CI/CD pipeline via GitHub Actions with deployment to Azure App Service.
 * 🤖 **[Gemini-Powered Data Intelligence Hub](https://github.com/29shnick/Gemini-Data-Intelligence-Hub)**
-An AI-driven platform built with **Python** and **Gemini 1.5 Flash** for natural language CSV analysis.
+  An AI-driven platform built with **Python** and **Gemini 1.5 Flash** for natural language CSV analysis.
 * 🛡️ **[LLM-Stress-Test-Suite](https://github.com/29shnick/LLM-Stress-Test-Suite)**
-Multilingual logic and slang benchmarks designed to test the boundaries of modern AI models.
+  Multilingual logic and slang benchmarks designed to test the boundaries of modern AI models.
+  ---
+### 📈 GitHub Stats
+![Nikola's GitHub stats](https://github-readme-stats.vercel.app/api?username=29shnick&show_icons=true&theme=radical)
 * 📊 **[Data-Center-Asset-Tracker](https://github.com/29shnick/Data-center-asset-tracker)**
-Infrastructure monitoring solution focused on hardware health and thermal efficiency.
+  Infrastructure monitoring solution focused on hardware health and thermal efficiency.
 * ₿ **[Bitcoin-Mining-App](https://github.com/29shnick/Bitcoin-Mining-App)**
-Real-time performance tracking and metrics for mining hardware operations.
-
----
-
-### 📊 GitHub Activity
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=29shnick&show_icons=true&theme=tokyonight&count_private=true)
-
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=29shnick&layout=compact&theme=tokyonight)
-
-
-
----
-
-
----
-
-### 📫 Let's Connect!
-* 📍 **Location:** Chicago, IL
-* 💼 **LinkedIn:** https://www.linkedin.com/in/ns-9352722bb
