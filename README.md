@@ -37,9 +37,11 @@ Based in Chicago, IL, I am a results-driven professional pivoting from a backgro
   An AI-driven platform built with **Python** and **Gemini 1.5 Flash** for natural language CSV analysis.
 * 🛡️ **[LLM-Stress-Test-Suite](https://github.com/29shnick/LLM-Stress-Test-Suite)**
   Multilingual logic and slang benchmarks designed to test the boundaries of modern AI models.
-  ---
-### 📈 GitHub Stats
-![Nikola's GitHub stats](https://github-readme-stats.vercel.app/api?username=29shnick&show_icons=true&theme=radical)
 * 📊 **[Data-Center-Asset-Tracker](https://github.com/29shnick/Data-center-asset-tracker)**
   Infrastructure monitoring solution focused on hardware health and thermal efficiency.
 * ₿ **[Bitcoin-Mining-App](https://github.com/29shnick/Bitcoin-Mining-App)**
+
+---
+
+### 📈 GitHub Stats
+![Nikola's GitHub stats](https://github-readme-stats.vercel.app/api?username=29shnick&show_icons=true&theme=radical)
