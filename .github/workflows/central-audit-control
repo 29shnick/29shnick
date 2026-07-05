@@ -1,0 +1,79 @@
+  - name: Install dependencies
+    run: |
+      sudo apt-get update
+      sudo apt-get install -y git jq
+
+  - name: Setup GH CLI
+    uses: cli/gh-action@v2
+    with:
+      version: latest
+
+  - name: Authenticate gh with PAT
+    env:
+      PAT: ${{ secrets.CENTRAL_PAT }}
+    run: |
+      if [ -z "${PAT}" ]; then
+        echo "ERROR: CENTRAL_PAT secret is not set" >&2
+        exit 1
+      fi
+      echo "${PAT}" | gh auth login --with-token
+
+  - name: Build list of public repos for target owner
+    id: list_repos
+    run: |
+      OWNER="${{ github.event.inputs.target_owner }}"
+      echo "Fetching public repos for: ${OWNER}"
+      gh repo list "${OWNER}" --visibility public --limit 500 --json nameWithOwner -q '.[].nameWithOwner' > public_repos.txt
+      count=$(wc -l < public_repos.txt || true)
+      echo "Found ${count} public repos"
+      echo "repos_count=${count}" >> $GITHUB_OUTPUT
+      echo "repos_file=public_repos.txt" >> $GITHUB_OUTPUT
+      cat public_repos.txt
+
+  - name: Fail if no repos found
+    if: steps.list_repos.outputs.repos_count == '0'
+    run: |
+      echo "No public repos found for the target owner. Exiting."
+      exit 1
+
+  - name: Audit & create PRs (loop)
+    env:
+      PAT: ${{ secrets.CENTRAL_PAT }}
+      DRY_RUN: ${{ github.event.inputs.dry_run }}
+      BRANCH_PREFIX: ${{ env.BRANCH_PREFIX }}
+      PR_TITLE: ${{ env.PR_TITLE }}
+    run: |
+      set -euo pipefail
+      OWNER="${{ github.event.inputs.target_owner }}"
+      repos_file="public_repos.txt"
+
+      while IFS= read -r repo_full; do
+        if [ -z "$repo_full" ]; then
+          continue
+        fi
+        echo "---- Processing $repo_full ----"
+        repo_name=$(basename "$repo_full")
+        short=$(echo "$repo_full" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9\-]/-/g' | cut -c1-40)
+        branch="${BRANCH_PREFIX}/${short}"
+        tmpdir=$(mktemp -d)
+        echo "Cloning https://x-access-token:${PAT}@github.com/${repo_full}.git into ${tmpdir}/${short}"
+        if ! git clone "https://x-access-token:${PAT}@github.com/${repo_full}.git" "${tmpdir}/${short}" --depth=1; then
+          echo "Clone failed for ${repo_full}; skipping."
+          rm -rf "${tmpdir}"
+          continue
+        fi
+        cd "${tmpdir}/${short}"
+
+        # Determine default branch
+        default_branch=$(git remote show origin | sed -n 's/ .*HEAD branch: //p' || echo "main")
+        # Create new branch
+        git checkout -b "${branch}"
+
+        # Backup README if present
+        if [ -f README.md ]; then
+          cp README.md README.md.bak
+          echo "Backed up README.md to README.md.bak"
+        fi
+
+        # Write README template (replace placeholders)
+        cat > README.md <<EOF
