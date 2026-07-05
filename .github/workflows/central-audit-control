@@ -1,4 +1,12 @@
-
+- - name: Install dependencies run:
+sudo apt-get update
+sudo apt-get install 
+-y git jq
+- name: Setup GH CLI
+-uses: cli/gh-action@v2
+-with:
+-version: 
+- latest
   - name: Authenticate gh with PAT
     env:
       PAT: ${{ secrets.CENTRAL_PAT }}
