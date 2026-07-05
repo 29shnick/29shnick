@@ -18,6 +18,76 @@
       fi
       echo "${PAT}" | gh auth login --with-token
 
+  - name: Validate inputs
+    run: |
+      OWNER="${{ github.event.inputs.target_owner }}"
+      if [ -z "${OWNER}" ]; then
+        echo "ERROR: target_owner input is required" >&2
+        exit 1
+      fi
+      echo "✓ Target owner validated: ${OWNER}"
+
+  - name: Build list of public repos for target owner
+    id: list_repos
+    run: |
+      OWNER="${{ github.event.inputs.target_owner }}"
+      echo "Fetching public repos for: ${OWNER}"
+      gh repo list "${OWNER}" --visibility public --limit 500 --json nameWithOwner -q '.[].nameWithOwner' > public_repos.txt
+      count=$(wc -l < public_repos.txt || echo "0")
+      echo "Found ${count} public repos"
+      echo "repos_count=${count}" >> $GITHUB_OUTPUT
+      echo "repos_file=public_repos.txt" >> $GITHUB_OUTPUT
+
+  - name: Fail if no repos found
+    if: fromJson(steps.list_repos.outputs.repos_count) == 0
+    run: |
+      echo "No public repos found for the target owner. Exiting."
+      exit 1
+
+  - name: Audit & create PRs (loop)
+    env:
+      PAT: ${{ secrets.CENTRAL_PAT }}
+      DRY_RUN: ${{ github.event.inputs.dry_run }}
+      BRANCH_PREFIX: ${{ env.BRANCH_PREFIX }}
+      PR_TITLE: ${{ env.PR_TITLE }}
+    run: |
+      set -euo pipefail
+      OWNER="${{ github.event.inputs.target_owner }}"
+      repos_file="public_repos.txt"
+
+      while IFS= read -r repo_full; do
+        # Use a trap to ensure cleanup even on errors
+        tmpdir=$(mktemp -d)
+        cleanup() { rm -rf "${tmpdir}"; }
+        trap cleanup EXIT
+
+        if [ -z "$repo_full" ]; then
+          continue
+        fi
+        echo "---- Processing $repo_full ----"
+        repo_name=$(basename "$repo_full")
+        short=$(echo "$repo_full" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9\-]/-/g' | cut -c1-40)
+        branch="${BRANCH_PREFIX}/${short}"
+        
+        echo "Cloning repository..."
+        # Use GH CLI instead of git clone with embedded token
+        if ! gh repo clone "${repo_full}" "${tmpdir}/${short}" -- --depth=1; then
+          echo "Clone failed for ${repo_full}; skipping."
+          continue
+        fi
+        
+        cd "${tmpdir}/${short}"
+        # ... rest of logic
+      done < "$repos_file"
+    env:
+      PAT: ${{ secrets.CENTRAL_PAT }}
+    run: |
+      if [ -z "${PAT}" ]; then
+        echo "ERROR: CENTRAL_PAT secret is not set" >&2
+        exit 1
+      fi
+      echo "${PAT}" | gh auth login --with-token
+
   - name: Build list of public repos for target owner
     id: list_repos
     run: |
